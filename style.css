@@ -17,7 +17,7 @@
 .pipe {
     position: absolute;
     bottom: 0;
-    width: 80px;
+    width: 150px;
     right: -80px;
     animation: pipe-animation 1.5s infinite linear;
 }
@@ -25,7 +25,7 @@
 .spider {
     width: 200px;
     position: absolute;
-    bottom: -20px; /* puxa a imagem pra baixo */
+    bottom: -20px;
 }
 
 .jump {
