@@ -11,7 +11,7 @@
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(#87ceeb, #e0f6ff);
+    background: linear-gradient(#87ceeb, #e0ffe5);
 }
 
 .pipe {
@@ -39,14 +39,23 @@
 }
 
 .scoreboard {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-family: 'Press Start 2P', monospace;
-    font-size: 20px;
-    color: #333;
-    text-align: right;
+position: absolute;
+top: 20px;
+right: 20px;
+background-color: rgba(255, 255, 255, 0.8); /* fundo branco semi-transparente */
+border: 2px solid #333; /* borda preta */
+border-radius: 10px; /* cantos arredondados */
+padding: 10px 15px;
+font-family: 'Press Start 2P', monospace;
+font-size: 16px;
+color: #000;
+text-align: right;
+box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* sombra para destaque */
+z-index: 10;
+width: fit-content;
 }
+
+
 
 @keyframes pipe-animation {
     from {

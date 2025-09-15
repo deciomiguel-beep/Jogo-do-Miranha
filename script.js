@@ -24,10 +24,13 @@ const loop = setInterval(() => {
     const spiderPosition = +window.getComputedStyle(spider).bottom.replace('px', '');
 
     // Incrementa a distância se o jogo não acabou
-    if (!gameOver) {
-        distance += 1;
-        distanceDisplay.textContent = `Distância: ${distance.toString().padStart(5, '0')}`;
-    }
+if (!gameOver) {
+distance += 1;
+points += 1; // Pontos aumentam com o tempo
+distanceDisplay.textContent = `Distância: ${distance.toString().padStart(5, '0')}`;
+pointsDisplay.textContent = `Pontos: ${points.toString().padStart(5, '0')}`;
+}
+
 
     // Detecta colisão
     if (pipePosition <= 120 && pipePosition > 0 && spiderPosition < 80) {
@@ -61,3 +64,39 @@ document.addEventListener('keydown', (event) => {
 document.addEventListener('touchstart', () => {
     jump();
 });
+
+// Playlist de músicas
+const musicPlaylist = [
+'./sounds/music1.mp3',
+'./sounds/music2.mp3',
+'./sounds/music3.mp3',
+'./sounds/music3.mp3',
+];
+
+const bgMusic = document.getElementById('bg-music');
+let currentTrack = 0;
+
+// Função para carregar e tocar a próxima música
+function playNextTrack() {
+    bgMusic.src = musicPlaylist[currentTrack];
+    bgMusic.play().catch((e) => console.log('Erro ao tocar música:', e));
+}
+
+// Quando a música termina, toca a próxima
+bgMusic.addEventListener('ended', () => {
+    currentTrack = (currentTrack + 1) % musicPlaylist.length; // Loop infinito
+    playNextTrack();
+});
+
+// Inicia a música na primeira interação do usuário
+function startMusic() {
+    playNextTrack();
+    document.removeEventListener('keydown', startMusic);
+    document.removeEventListener('touchstart', startMusic);
+}
+
+document.addEventListener('keydown', startMusic);
+document.addEventListener('touchstart', startMusic);
+
+let points = 0;
+const pointsDisplay = document.getElementById('points');
