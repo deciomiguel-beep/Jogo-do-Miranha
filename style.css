@@ -14,12 +14,12 @@
     background: linear-gradient(#87ceeb, #e0ffe5);
 }
 
-.pipe {
+.venom {
     position: absolute;
     bottom: 0;
     width: 150px;
     right: -80px;
-    animation: pipe-animation 1.5s infinite linear;
+    animation: venom-animation 1.5s infinite linear;
 }
 
 .spider {
@@ -57,13 +57,19 @@ width: fit-content;
 
 
 
-@keyframes pipe-animation {
+@keyframes venom-animation {
     from {
         right: -80px;
     }
     to {
         right: 100%;
     }
+}
+
+/* animação do flyer */
+@keyframes flyer-animation {
+    from { right: -200px; }
+    to { right: 100%; }
 }
 
 @keyframes jump {
